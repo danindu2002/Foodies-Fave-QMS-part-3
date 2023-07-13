@@ -1,5 +1,7 @@
 package com.example.sd2cwpart3;
 
+import javafx.scene.control.Label;
+
 public class WaitingQueue
 {
     private static Customer[] waitingListQueue;
@@ -9,6 +11,7 @@ public class WaitingQueue
     public static int nItems;
     // maximum size for the waiting queue is 10
     private static int size = 10;
+    private Controller obj = new Controller();
 
     public WaitingQueue(int size)
     {
@@ -74,6 +77,20 @@ public class WaitingQueue
         }
         if (printToFile)  Main.fileInput.println("\n");
         else  System.out.println("\n");
+    }
+
+    // overloaded method to set customer details for the GUI
+    public static void getWaitingQueueCustomers(Label[] queueLabels)
+    {
+        for (int i = 0; i < nItems ; i++)
+        {
+            if (waitingListQueue[i] != null)
+            {
+                String[] nameParts = Main.nameCapitalization(waitingListQueue[i].getFullName().split(" "));
+                String waitingCustomer = String.format("%s. %s %s  -  %s", (i+1), nameParts[0], nameParts[1], waitingListQueue[i].getBurgerCount());
+                queueLabels[i].setText(waitingCustomer);
+            }
+        }
     }
 }
 

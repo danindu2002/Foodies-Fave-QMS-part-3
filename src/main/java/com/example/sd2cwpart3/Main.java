@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.*;
 
-public class Main
+public class Main extends Application
 {
     public static String answer;
     public static int burgerStock = 50;
@@ -46,6 +46,7 @@ public class Main
                 108 or STK: View Remaining burgers Stock
                 109 or AFS: Add burgers to Stock
                 110 or IFQ: View the income of each queue
+                112 or GUI: View the GUI
                 999 or EXT: Exit the Program
                 """);
         System.out.print("Select a menu option: ");
@@ -109,6 +110,11 @@ public class Main
             {
                 FoodQueue.viewQueueIncome();
                 loopController();
+            }
+            // displaying the income of each queue separately
+            case "112", "GUI" ->
+            {
+                Application.launch();
             }
             // exiting the program with a default message
             case "999", "EXT" ->
