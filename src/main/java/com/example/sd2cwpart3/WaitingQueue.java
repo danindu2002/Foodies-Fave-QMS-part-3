@@ -6,15 +6,15 @@ public class WaitingQueue
 {
     private static Customer[] waitingListQueue;
     // defining pointers for the circular queue names front & rear
-    private static int front;
-    private static int rear;
+    public static int front;
+    public static int rear;
     public static int nItems;
     // maximum size for the waiting queue is 10
-    private static int size = 10;
+    private static int size;
 
-    public WaitingQueue(int size)
+    public WaitingQueue()
     {
-        this.size = size;
+        size = 10;
         waitingListQueue = new Customer[size];
         front = 0;
         rear = -1;
@@ -57,7 +57,7 @@ public class WaitingQueue
         if (printToFile)  Main.fileInput.print("Customers in Waiting Queue     : ");
         else  System.out.print("Customers in Waiting Queue     : ");
 
-        for (int i = 0; i < nItems ; i++)
+        for (int i = 0; i < (nItems + front) ; i++)
         {
             if (waitingListQueue[i] != null)
             {
@@ -67,7 +67,7 @@ public class WaitingQueue
                 if (printToFile)  Main.fileInput.print(customerInfo);
                 else  System.out.print(customerInfo);
 
-                if (i + 1 != nItems && waitingListQueue[i + 1] != null)
+                if (i + 1 != (nItems + front) && waitingListQueue[i + 1] != null)
                 {
                     if  (printToFile) Main.fileInput.print(", ");
                     else  System.out.print(", ");
@@ -85,7 +85,7 @@ public class WaitingQueue
         {
             int j = 0;
             // copying data to a new waiting queue array to keep the circular queue unchanged
-            Customer waitingListQueueForGUI[] = waitingListQueue.clone();
+            Customer[] waitingListQueueForGUI = waitingListQueue.clone();
 
             // repositioning customers in the new waiting list if 1 or more customers get added to the cashier queue
             if (waitingListQueueForGUI[0] == null)
@@ -110,4 +110,3 @@ public class WaitingQueue
         }
     }
 }
-

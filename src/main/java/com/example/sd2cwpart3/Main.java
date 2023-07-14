@@ -18,7 +18,7 @@ public class Main extends Application
     public static FoodQueue[] cashier = new FoodQueue[3];
 
     // declaring a WaitingQueue type array to store maximum 10 customers in the waiting area
-    public static WaitingQueue waitingQueue = new WaitingQueue(10);
+    public static WaitingQueue waitingQueue = new WaitingQueue();
     public static void main(String[] args)
     {
         // initializing 3 FoodQueue objects to store each queue
@@ -260,6 +260,8 @@ public class Main extends Application
             String line;
             String saveTime = "";
             int cashierIndex = 0;
+            WaitingQueue.rear = -1;
+            WaitingQueue.front = 0;
 
             // reading and adding values to all variables
             while (fileReader.hasNextLine())
@@ -309,6 +311,7 @@ public class Main extends Application
                     {
                         if(waitingQueueTokens[i].equals("")) break;
                         String[] waitingCustomerAttributes = waitingQueueTokens[i].split("\\s+");
+
                         // inserting customer objects to the waitingQueue
                         WaitingQueue.insert(Customer.setLoadedCustomer(waitingCustomerAttributes));
                         WaitingQueue.nItems--;

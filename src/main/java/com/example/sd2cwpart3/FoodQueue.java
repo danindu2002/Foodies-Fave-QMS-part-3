@@ -249,17 +249,6 @@ public class FoodQueue
 
                         // adding customers from waiting area to queue if they exist
                         waitingToCashier(lastElement);
-//                        if(WaitingQueue.nItems == 0)
-//                        {
-//                            Main.cashier[actualQueueNumber].getCustomerQueue()[lastElement] = null;   /* updating the last one in the queue as empty */
-//                        }
-//                        else
-//                        {
-//                            Main.cashier[actualQueueNumber].getCustomerQueue()[lastElement] = WaitingQueue.remove();
-//                            // updating income and empty slots
-//                            queueIncome[actualQueueNumber] += Main.cashier[actualQueueNumber].getCustomerQueue()[lastElement].getBurgerAmount() * burgerPrice;
-//                            emptySlots--;
-//                        }
                         System.out.println("Served customer was removed successfully from queue " + queueNumber);
                         loop = false;
                         Main.loopController();
@@ -332,18 +321,6 @@ public class FoodQueue
 
                                     // adding customers from waiting area to queue if they exist
                                     waitingToCashier(lastElement);
-//                                    if(WaitingQueue.nItems == 0)
-//                                    {
-//                                        Main.cashier[actualQueueNumber].getCustomerQueue()[lastElement] = null;   /* updating the last one in the queue as empty */
-//                                    }
-//                                    else
-//                                    {
-//                                        Main.cashier[actualQueueNumber].getCustomerQueue()[lastElement] = WaitingQueue.remove();
-//                                        // updating the income of the added customer
-//                                        queueIncome[actualQueueNumber] += Main.cashier[actualQueueNumber].getCustomerQueue()[lastElement].getBurgerAmount() * burgerPrice;
-//                                        emptySlots--;
-//                                    }
-
                                     System.out.println("Customer was removed successfully from queue " + queueNumber);
                                     loop4 = false;
                                 }
@@ -509,5 +486,3 @@ public class FoodQueue
         queueNumber = Main.input.nextInt();
     }
 }
-
-
