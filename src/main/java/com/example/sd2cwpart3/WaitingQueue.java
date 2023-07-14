@@ -11,7 +11,6 @@ public class WaitingQueue
     public static int nItems;
     // maximum size for the waiting queue is 10
     private static int size = 10;
-    private Controller obj = new Controller();
 
     public WaitingQueue(int size)
     {
@@ -63,7 +62,7 @@ public class WaitingQueue
             if (waitingListQueue[i] != null)
             {
                 String[] nameParts = Main.nameCapitalization(waitingListQueue[i].getFullName().split(" "));
-                String customerInfo = nameParts[0] + " " + nameParts[1] + " - " + waitingListQueue[i].getBurgerCount();
+                String customerInfo = nameParts[0] + " " + nameParts[1] + " - " + waitingListQueue[i].getBurgerAmount();
 
                 if (printToFile)  Main.fileInput.print(customerInfo);
                 else  System.out.print(customerInfo);
@@ -82,12 +81,30 @@ public class WaitingQueue
     // overloaded method to set customer details for the GUI
     public static void getWaitingQueueCustomers(Label[] queueLabels)
     {
-        for (int i = 0; i < nItems ; i++)
+        if(nItems != 0)
         {
-            if (waitingListQueue[i] != null)
+            int j = 0;
+            // copying data to a new waiting queue array to keep the circular queue unchanged
+            Customer waitingListQueueForGUI[] = waitingListQueue.clone();
+
+            // repositioning customers in the new waiting list if 1 or more customers get added to the cashier queue
+            if (waitingListQueueForGUI[0] == null)
             {
-                String[] nameParts = Main.nameCapitalization(waitingListQueue[i].getFullName().split(" "));
-                String waitingCustomer = String.format("%s. %s %s  -  %s", (i+1), nameParts[0], nameParts[1], waitingListQueue[i].getBurgerCount());
+                for (int k = 1; k < 10; k++)
+                {
+                    if (waitingListQueueForGUI[k] != null)
+                    {
+                        waitingListQueueForGUI[j] = waitingListQueueForGUI[k];
+                        waitingListQueueForGUI[k] = null;
+                        j++;
+                    }
+                }
+            }
+            // setting remaining customer details to the labels
+            for (int i = 0; i < nItems ; i++)
+            {
+                String[] nameParts = Main.nameCapitalization(waitingListQueueForGUI[i].getFullName().split(" "));
+                String waitingCustomer = String.format("%s. %s %s  -  %s", (i+1), nameParts[0], nameParts[1], waitingListQueueForGUI[i].getBurgerAmount());
                 queueLabels[i].setText(waitingCustomer);
             }
         }

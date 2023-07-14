@@ -1,25 +1,25 @@
 -------------------------------------->  Foodies Fave Queue Management System Data  <-------------------------------------- 
  
 
-Last Saved                     ; Thu Jul 13 11:11:32 IST 2023 
+Last Saved                     ; Fri Jul 14 23:17:10 IST 2023 
 
-Remaining Burger Count         : 9
-Reserved Burger Count          : 41
+Remaining Burger Count         : 24
+Reserved Burger Count          : 69
 Sold Burger Count              : 0
 Served Customers Count         : 0 
 
 ----------------------------------------------------- Cashier Queues ------------------------------------------------------ 
 
-Cashier 1   >   Rs. 07800      : Danindu Srinath - 4, Chethiya Bosa - 8 
-Cashier 2   >   Rs. 08450      : Nimal Cuhacaya - 7, Hiruna Bosa - 3, Matheesha Bigusara - 3 
-Cashier 3   >   Rs. 10400      : Sanjana Bandara - 3, Raveesha Resh - 4, Gotabaya Ubetatta - 2, Samnthabadra Munindra - 3, Kotuwe Podi - 4 
+Cashier 1   >   Rs. 03900      : A A - 2, D D - 4 
+Cashier 2   >   Rs. 26000      : B B - 33, E E - 3, G G - 4 
+Cashier 3   >   Rs. 14950      : C C - 4, F F - 4, H H - 5, I I - 6, J J - 4 
 
 No.of Empty Slots              : 0 
 
 ------------------------------------------------------ Waiting Queue ------------------------------------------------------ 
 
-No.of Waiting Queue Customers  : 2 
+No.of Waiting Queue Customers  : 3 
 
-Customers in Waiting Queue     : Ranil Wik - 7, Raniluth Gay - 4
+Customers in Waiting Queue     : Aa Aa - 2, Bb Bb - 3, C Cc - 3
 
                                                         * * * * * *

@@ -1,5 +1,4 @@
 package com.example.sd2cwpart3;
-
 public class Customer
 {
     private String firstName;
@@ -32,7 +31,7 @@ public class Customer
         if(firstName != null && secondName != null) return firstName + " " + secondName;
         else return null;
     }
-    public int getBurgerCount()
+    public int getBurgerAmount()
     {
         return burgerAmount;
     }
