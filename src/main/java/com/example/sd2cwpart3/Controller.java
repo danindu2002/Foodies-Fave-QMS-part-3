@@ -254,7 +254,7 @@ public class Controller implements Initializable
         searchData.clear();
 
         // checking if the search text is empty or not
-        if (!searchText.isBlank() && searchText != null && !searchText.isEmpty())
+        if (!searchText.isBlank() && !searchText.isEmpty())
         {
             for (int i = 0; i < 10; i++)
             {
@@ -316,4 +316,3 @@ public class Controller implements Initializable
         }
     }
 }
-
