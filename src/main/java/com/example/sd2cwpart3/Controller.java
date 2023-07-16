@@ -223,7 +223,7 @@ public class Controller implements Initializable
                     countLabels[k].setText(String.valueOf(Main.cashier[j].getCustomerQueue()[i].getBurgerAmount()));
                     k++;
                 }
-                if (i == 0)  queueIncomes[j].setText("Rs. " + String.valueOf(FoodQueue.queueIncome[j]));
+                if (i == 0)  queueIncomes[j].setText("Rs. " + FoodQueue.queueIncome[j]);
             }
         }
         // setting values for the other informative variables
